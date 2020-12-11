@@ -2,15 +2,19 @@ name: Add Label
 
 on:
   issues:
-    types: opened
+    types: [opened]
 
 jobs:
-  add_label:
+  apply-label:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
+      - uses: actions/github-script@v3
         with:
-          github_token: ${{ secrets.github_token }}
-          labels: test
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['need-attentions']
+            })
