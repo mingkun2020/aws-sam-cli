@@ -1,15 +1,14 @@
 name: Add Label
 
 on:
-  label:
-    types: [deleted]
+  issues:
+    types: unlabeled
 
 jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event.path.name == 'blocked/more-info-needed'
-        uses: actions/github-script@v3
+      - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
