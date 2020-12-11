@@ -22,7 +22,7 @@ jobs:
 
         # These labels are required
         stale-issue-label: blocked/close-if-inactive
-        exempt-issue-labels: no-autoclose
+        exempt-issue-labels: no-autoclose, stage/need-attention
         stale-pr-label: blocked/close-if-inactive
         exempt-pr-labels: no-autoclose
         response-requested-label: blocked/more-info-needed
