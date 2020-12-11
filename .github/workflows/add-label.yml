@@ -1,14 +1,15 @@
 name: Add Label
 
 on:
-  issues:
-    types: [opened]
+  label:
+    types: [deleted]
 
 jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v3
+      - if: github.event.path.name == 'blocked/more-info-needed'
+        uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -16,5 +17,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['need-attentions']
+              labels: ['stage/need-attention']
             })
