@@ -8,7 +8,7 @@ jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event.label.name == 'haha'
+      - if: github.event.label.name == 'blocked/more-info-needed' || github.event.label.name == 'blocked/close-if-inactive'
         uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
