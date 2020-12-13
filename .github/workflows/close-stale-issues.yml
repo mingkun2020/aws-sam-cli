@@ -41,7 +41,7 @@ jobs:
         # on an issue.
         minimum-upvotes-to-exempt: 1
 
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.REPO_SCOPED_TOKEN }}
         #loglevel: DEBUG
         # Set dry-run to true to not perform label or close actions.
         #dry-run: true
