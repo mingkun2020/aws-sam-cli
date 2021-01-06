@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: github.event.sender.login != 'mingkun2020'
+        #assume our the login of our bot called 'SAMCLIBOT'
+        if: github.event.sender.login != 'SAMCLIBOT'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
