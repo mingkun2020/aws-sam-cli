@@ -3,6 +3,7 @@ name: "Close stale issues"
 # Controls when the action will run.
 on:
   schedule:
+  # Uses UTC so it runs at 10PM PDT
   - cron: "*/15 * * * *"
 
 jobs:
