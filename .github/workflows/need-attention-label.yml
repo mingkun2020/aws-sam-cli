@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/github-script@v3
         #assume the login of our bot called 'SAMCLIBOT'
-        if: github.event.sender.login != 'SAMCLIBOT'
+        if: github.event.sender.login != 'mingkun2020'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
